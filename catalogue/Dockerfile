@@ -14,4 +14,9 @@ RUN npm install
 
 # Service file, environment anedi setup chestunna docker lo
 ENV MONGO="true" \
-    MONGO_URL="mongodb://<MONGODB-SERVER-IPADDRESS>:27017/catalogue"
+    MONGO_URL="mongodb://mongodb:27017/catalogue"
+
+
+#ExecStart=/bin/node /app/server.js
+#nenu present /opt/serverver lone vunna, so direct ga istunna.
+CMD ["node", "server.js"]
