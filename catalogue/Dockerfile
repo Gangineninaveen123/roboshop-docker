@@ -7,7 +7,7 @@ WORKDIR /opt/server
 #copying application code into home directory [. [dot]-> current directory]
 # COPY *.json . [copying all json files into current directory]
 COPY package.json .
-COPY *.json .
+COPY *.js .
 
 #installing dependencies
 RUN npm install
