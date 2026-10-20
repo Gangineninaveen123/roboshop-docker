@@ -7,7 +7,7 @@ WORKDIR /opt/server
 #copying application code into home directory [. [dot]-> current directory]
 # COPY src .[copying all java files into current directory]
 COPY pom.xml .
-COPY src .
+COPY src /opt/server/src
 
 #installing packages and dependencies, mvn clean package
 RUN mvn clean package
