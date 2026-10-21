@@ -80,4 +80,18 @@ services:
     - rabbitmq
 
 
+  # frontend
+  frontend:
+    image: gangineninaveen/frontend:v1
+    container_name: frontend
+    ports:
+    - "80:80" #1st 80-> host port 2nd-> 80[container port]
+    depends_on:
+    - catalogue
+    - user
+    - cart
+    - shipping
+    - payment
+
+
 
