@@ -51,3 +51,14 @@ services:
     - mysql
     - cart
 
+# rabbitmq , lo manam emi, data load cheyam kabbati, direct ga internet, nunchi pull chesta, same like redis.
+  rabbitmq:
+    image: rabbitmq:3 # taking official rabbitmq docker image from docker hub
+    container_name: rabbitmq
+    # more info in official image [https://hub.docker.com/_/rabbitmq]
+    #environment details in docker compose[https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/] for below details
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+
+
