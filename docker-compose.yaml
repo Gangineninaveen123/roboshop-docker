@@ -1,0 +1,53 @@
+
+# all our containers are going to be services.
+#customesided network of docker bridge no the the default bridge network.
+#now, ikkada, docker network bridge customised ga kuda ide create cheya galadu ana mata, so ippudu, docker compose  execute chesinappudu, it will create, [docker network create roboshop] , for all the services inside this docker-compose.yaml file
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    #external: true # I created the network already using [docker network create roboshop]-> customised bridge network, so by marking the network as external:
+
+
+services:
+  mongodb:
+    image: gangineninaveen/mongodb:v1
+    container_name: mongodb
+
+  catalogue:
+    image: gangineninaveen/catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb # dependens on ,[service file, if i check, i will get to know the dependencies.] we can create one or many.
+
+  redis:
+    image: redis:7.0
+    container_name: redis
+    
+
+  user:
+    image: gangineninaveen/user:v1
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
+
+
+  cart:
+    image: gangineninaveen/cart:v1
+    container_name: cart
+    depends_on:
+    - catalogue
+    - redis
+
+  mysql:
+    image: gangineninaveen/mysql:v1
+    container_name: mysql
+    
+  shipping:
+    image: gangineninaveen/shipping:v1
+    container_name: shipping
+    depends_on:
+    - mysql
+    - cart
+
