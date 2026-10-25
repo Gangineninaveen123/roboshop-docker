@@ -1,6 +1,7 @@
 
+#the below is customised brifge network.
 # all our containers are going to be services.
-#customesided network of docker bridge no the the default bridge network.
+#customesided network of docker bridge network, [not the the default bridge network.]
 #now, ikkada, docker network bridge customised ga kuda ide create cheya galadu ana mata, so ippudu, docker compose  execute chesinappudu, it will create, [docker network create roboshop] , for all the services inside this docker-compose.yaml file
 networks:
   default:
@@ -8,11 +9,20 @@ networks:
     name: roboshop
     #external: true # I created the network already using [docker network create roboshop]-> customised bridge network, so by marking the network as external:
 
+#volumes -> named volumes -> docker will create the host path.
+#mainly for databases.
+volumes:
+  mongodb:
+  redis:
+  mysql:
+  rabbitmq: # ila voulme kinda icham ante-> [docker volume create rabbitmq] ani, so volume create chesunti docker vachesi rabbitmq ki ani.
 
 services:
   mongodb:
     image: gangineninaveen/mongodb:v1
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db  # [mongodb-> Volume peru (host side, Docker host path decide chestundi)] and [/data/db -> Container path (container lopala folder lopala data store avtundi) -> Docker Hub official image page -> container path untundi -> hub.docker.com/_/mongo lo “Where to Store Data” ane section untundi. Adi data directory path chebutundi. MySQL, PostgreSQL, Redis official pages lo kuda same section untundi ]
 
   catalogue:
     image: gangineninaveen/catalogue:v1
@@ -23,6 +33,8 @@ services:
   redis:
     image: redis:7.0
     container_name: redis
+    volumes:
+    - redis:/data #[redis-> volume name-> docker vachesi host path decide chestundi, and [/data -> anedi container path, manam decide chestam, official image chusi docker hub lo]
     
 
   user:
@@ -43,6 +55,8 @@ services:
   mysql:
     image: gangineninaveen/mysql:v1
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
     
   shipping:
     image: gangineninaveen/shipping:v1
@@ -60,6 +74,9 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
+
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq
 
 
   # payment details and enviroment variables
