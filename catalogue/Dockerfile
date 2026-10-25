@@ -1,5 +1,5 @@
 # image of nodejs :20 version i have taken from docker hub
-#apine vachesi, base image os, chala takiuva mb tisukundi so anduke use chestunnam.
+#alpine vachesi, base image os, chala takiuva mb tisukundi so anduke use chestunnam.
 FROM node:20-alpine3.23 
 
 # To download the extra content. mana istam vachina chota pettukovachu.[opt anedi konchem proper ga vuntundi]
