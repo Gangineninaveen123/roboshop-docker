@@ -15,7 +15,8 @@ RUN npm install
 # so above ni docker file ga use chesukoni, inko docker file
 FROM node:20-alpine3.23
 #Below inka, nenu optimaisations chestanu ana mata, like RUN , SYSTEM USER, 
-RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
+RUN addgroup -S roboshop
+RUN adduser -S roboshop -G roboshop
 
 ENV MONGO="true"
 ENV MONGO_URL="mongodb://mongodb:27017/catalogue"
