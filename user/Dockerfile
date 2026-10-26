@@ -5,6 +5,14 @@ FROM node:20
 # To download the extra content. mana istam vachina chota pettukovachu.[opt anedi konchem proper ga vuntundi]
 WORKDIR /opt/server
 
+
+# Service file, environment anedi setup chestunna docker lo
+ENV MONGO="true" \
+    REDIS_URL="redis://redis:6379" \
+    MONGO_URL="mongodb://mongodb:27017/users" 
+
+
+#******** layesrs, will not impact, beacause app code may chage freqently *************
 #copying application code into home directory [. [dot]-> current directory]
 # COPY *.json . [copying all json files into current directory]
 COPY package.json .
@@ -12,13 +20,6 @@ COPY *.js .
 
 #installing dependencies
 RUN npm install
-
-# Service file, environment anedi setup chestunna docker lo
-ENV MONGO="true" \
-    REDIS_URL="redis://redis:6379" \
-    MONGO_URL="mongodb://mongodb:27017/users" 
-    
-
 
 #ExecStart=/bin/node /app/server.js
 #nenu present /opt/serverver lone vunna, so direct ga istunna.
