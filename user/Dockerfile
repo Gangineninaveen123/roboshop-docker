@@ -23,8 +23,8 @@ COPY *.js .
 RUN npm install
 # the below command, just to check, disk size when increase in RUN Instaructions, lets see
 RUN apt-get update
-RUN apt-get install netools
-RUN apt-get install git
+RUN apt-get install -y net-tools
+RUN apt-get install -y git
 
 #ExecStart=/bin/node /app/server.js
 #nenu present /opt/serverver lone vunna, so direct ga istunna.
