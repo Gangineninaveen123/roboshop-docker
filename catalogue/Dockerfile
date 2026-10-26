@@ -22,8 +22,9 @@ ENV MONGO="true" \
 
 WORKDIR /opt/server
 USER roboshop
-# here from builder /opt/server lo ne, man app code related files vunnai, so daani, matram copy chestunnam.
-COPY --from=builder /opt/server /opt/server
+# here from builder /opt/server lo ne, man app code related files vunnai, so daani, matram copy chestunnam by root user only coping
+COPY --from=builder /opt/server /opt/server 
+#running container is or app code is by system user roboshop
 CMD ["node", "server.js"]
 
 # ****************** end of multi statge builds *************
