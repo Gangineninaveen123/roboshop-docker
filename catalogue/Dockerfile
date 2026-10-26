@@ -17,8 +17,6 @@ FROM node:20-alpine3.23
 #Below inka, nenu optimaisations chestanu ana mata, like RUN , SYSTEM USER, 
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 
-RUN chown -R roboshop:roboshop /opt/server
-
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 
@@ -28,7 +26,7 @@ USER roboshop
 COPY --from=builder /opt/server /opt/server
 CMD ["node", "server.js"]
 
-# ****************** end of multi statge builds ************88888888888
+# ****************** end of multi statge builds ************
 
 # # image of nodejs :20 version i have taken from docker hub
 # #alpine vachesi, base image os, chala takiuva mb tisukundi so anduke use chestunnam.
