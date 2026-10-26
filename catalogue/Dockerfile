@@ -26,7 +26,7 @@ USER roboshop
 COPY --from=builder /opt/server /opt/server
 CMD ["node", "server.js"]
 
-# ****************** end of multi statge builds ************
+# ****************** end of multi statge builds *************
 
 # # image of nodejs :20 version i have taken from docker hub
 # #alpine vachesi, base image os, chala takiuva mb tisukundi so anduke use chestunnam.
