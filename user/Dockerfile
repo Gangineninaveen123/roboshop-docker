@@ -25,6 +25,7 @@ RUN npm install
 RUN apt-get update \
     && apt-get install -y net-tools git \
     && apt-get clean
+    
 
 #ExecStart=/bin/node /app/server.js
 #nenu present /opt/serverver lone vunna, so direct ga istunna.
