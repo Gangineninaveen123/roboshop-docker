@@ -8,9 +8,9 @@ WORKDIR /opt/server
 
 # Service file, environment anedi setup chestunna docker lo
 # ILA KUDA RAYACHU, OR oke ENV  petti, last lo foraward slash ina ivvachu.
-ENV MONGO="true"
-ENV REDIS_URL="redis://redis:6379"
-ENV MONGO_URL="mongodb://mongodb:27017/users" 
+ENV MONGO="true" \
+    REDIS_URL="redis://redis:6379" \
+    MONGO_URL="mongodb://mongodb:27017/users" 
 
 
 #******** layesrs, will not impact, beacause app code may chage freqently *************
@@ -21,11 +21,11 @@ COPY *.js .
 
 #installing dependencies
 RUN npm install
-# the below command, just to check, disk size when increase in RUN Instaructions, lets see
-RUN apt-get update \
-    && apt-get install -y net-tools git \
-    && apt-get clean
-    
+# # the below command, just to check, disk size when increase in RUN Instaructions, lets see
+# RUN apt-get update \
+#     && apt-get install -y net-tools git \
+#     && apt-get clean
+
 
 #ExecStart=/bin/node /app/server.js
 #nenu present /opt/serverver lone vunna, so direct ga istunna.
