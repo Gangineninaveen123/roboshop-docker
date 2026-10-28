@@ -10,8 +10,8 @@ WORKDIR /opt/server
 COPY pom.xml .
 COPY src /opt/server/src
 # i can keep, multiple run commands into single run command only.[ll see in image creation in 2nd Dockerfile, downside]
-RUN mvn clean package \
-    #&& mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
+RUN mvn clean package
+#&& mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 
 # stage:2 , run the image
 FROM eclipse-temurin:17-jre-alpine
