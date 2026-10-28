@@ -1,6 +1,7 @@
 #************** multi stage builds ****************
 # [Multi-stage build lo oke Dockerfile lo multiple FROM untayi. Build tools anni mundu stage lo (builder) untayi, final image lo run ki kavalsina files matrame copy avthayi. Result: image size chala taggutundi.]
 
+# Stage 1: build
 # Stage 1: dependencies install
 FROM node:20-alpine3.23 AS builder
 
@@ -11,6 +12,7 @@ COPY *.js .
 
 RUN npm install
 
+# Stage 2: Run image
 # Stage 2: final image
 # so above ni docker file ga use chesukoni, inko docker file
 FROM node:20-alpine3.23
