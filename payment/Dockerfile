@@ -23,7 +23,7 @@ RUN pip3 install -r requirements.txt
 
 #running the  app code in while payment conatiner starts, through CMD Instruction
 CMD ["uwsgi","--ini","payment.ini"]
-#CMD ["sleep", "1000"]
+
 
 #********Multi stage builds *************
 
