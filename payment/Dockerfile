@@ -19,7 +19,8 @@ COPY --from=builder /opt/server /opt/server
 # customised bridge network user
 USER roboshop
 #running the  app code in while payment conatiner starts, through CMD Instruction
-CMD ["uwsgi","--ini","payment.ini"]
+#CMD ["uwsgi","--ini","payment.ini"]
+CMD ["sleep", "1000"]
 
 #********Multi stage builds *************
 
