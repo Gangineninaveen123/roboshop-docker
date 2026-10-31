@@ -5,6 +5,7 @@
 #for JRE taking official image in docker hub[JDK , we dont want, because (.jar file tisukoni stage:2, run lo use chestam)]
 # Stage 1: build
 # Stage 1: dependencies install
+# maven (JDK -> Which do the compile the code and make it as build)
 FROM maven AS builder
 WORKDIR /opt/server
 COPY pom.xml .
@@ -14,6 +15,7 @@ RUN mvn clean package
 #&& mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 
 # stage:2 , run the image
+# while running the image at run time, i don't need build, and i have copied, so at run time, i do't need maven, to build the image[from builder i am taking from build1-> image cretion], so jre official image i have taken.
 FROM eclipse-temurin:17-jre-alpine
 #WORKDIR / pwd
 WORKDIR /opt/server

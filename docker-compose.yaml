@@ -1,5 +1,5 @@
 
-#the below is customised brifge network.
+#the below is customised brid ge network.
 # all our containers are going to be services.
 #customesided network of docker bridge network, [not the the default bridge network.]
 #now, ikkada, docker network bridge customised ga kuda ide create cheya galadu ana mata, so ippudu, docker compose  execute chesinappudu, it will create, [docker network create roboshop] , for all the services inside this docker-compose.yaml file
@@ -9,7 +9,7 @@ networks:
     name: roboshop
     #external: true # I created the network already using [docker network create roboshop]-> customised bridge network, so by marking the network as external:
 
-#volumes -> named volumes -> docker will create the host path.
+#volumes -> named volumes -> docker will create the host path.[so aa host path lo user data anedi store chesukuntundi, back up kosam.]
 #mainly for databases.
 volumes:
   mongodb:
